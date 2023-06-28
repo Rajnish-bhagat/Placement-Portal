@@ -1,0 +1,175 @@
+mysql> show tables;
++-----------------------------+
+| Tables_in_TPC               |
++-----------------------------+
+| alumni_academic_profile     |
+| alumni_current_details      |
+| alumni_graduation_placement |
+| alumni_login                |
+| companies                   |
+| student_application         |
+| student_details             |
+| student_login               |
+| student_placement           |
+| year_2022                   |
+| year_2023                   |
++-----------------------------+
+11 rows in set (0.00 sec)
+
+mysql> desc alumni_academic_profile;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| roll_number      | char(8)      | NO   | PRI | NULL    |       |
+| class10          | float        | YES  |     | NULL    |       |
+| class12          | float        | YES  |     | NULL    |       |
+| cpi              | float        | YES  |     | NULL    |       |
+| back             | varchar(3)   | YES  |     | NULL    |       |
+| age              | tinyint      | YES  |     | NULL    |       |
+| specialization   | varchar(100) | YES  |     | NULL    |       |
+| area_of_interest | varchar(100) | YES  |     | NULL    |       |
+| batch_year       | year         | YES  |     | NULL    |       |
+| transcript_link  | varchar(500) | YES  |     | NULL    |       |
+| resume_link      | varchar(500) | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+11 rows in set (0.02 sec)
+
+mysql> desc alumni_current_details;
++---------------------+----------------+------+-----+---------+-------+
+| Field               | Type           | Null | Key | Default | Extra |
++---------------------+----------------+------+-----+---------+-------+
+| roll_number         | char(8)        | NO   | PRI | NULL    |       |
+| company             | varchar(100)   | YES  |     | NULL    |       |
+| ctc                 | varchar(100)   | YES  |     | NULL    |       |
+| role_               | varchar(100)   | YES  |     | NULL    |       |
+| position            | varchar(100)   | YES  |     | NULL    |       |
+| place_of_work       | varchar(100)   | YES  |     | NULL    |       |
+| working_tenure      | int            | YES  |     | NULL    |       |
+| previous_experience | varchar(10000) | YES  |     | NULL    |       |
++---------------------+----------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc alumni_graduation_placement;
++---------------+-------------+------+-----+---------------+-------+
+| Field         | Type        | Null | Key | Default       | Extra |
++---------------+-------------+------+-----+---------------+-------+
+| roll_number   | char(8)     | NO   | PRI | NULL          |       |
+| company       | varchar(50) | YES  |     | Not Placed    |       |
+| role_         | varchar(50) | YES  |     | Please Update |       |
+| package       | int         | YES  |     | NULL          |       |
+| place_of_work | varchar(50) | YES  |     | NULL          |       |
+| off_campus    | tinyint(1)  | YES  |     | 0             |       |
++---------------+-------------+------+-----+---------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc alumni_login;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| roll_number        | char(8)      | NO   | PRI | NULL    |       |
+| email              | varchar(100) | YES  |     | NULL    |       |
+| first_name         | varchar(100) | YES  |     | NULL    |       |
+| last_name          | varchar(100) | YES  |     | NULL    |       |
+| password           | varchar(100) | YES  |     | NULL    |       |
+| verification_token | varchar(100) | YES  |     | NULL    |       |
+| verified           | tinyint(1)   | YES  |     | NULL    |       |
++--------------------+--------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> desc companies;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | YES  |     | NULL    |                |
+| email    | varchar(100) | YES  |     | NULL    |                |
+| password | varchar(100) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> desc student_application;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| roll_number | char(8)      | NO   | PRI | NULL    |       |
+| company_id  | int          | NO   | PRI | NULL    |       |
+| role        | varchar(100) | NO   | PRI | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> desc student_details;
++------------------+--------------+------+-----+----------------------------+-------+
+| Field            | Type         | Null | Key | Default                    | Extra |
++------------------+--------------+------+-----+----------------------------+-------+
+| roll_number      | char(8)      | NO   | PRI | NULL                       |       |
+| class10          | float        | YES  |     | NULL                       |       |
+| class12          | float        | YES  |     | NULL                       |       |
+| cpi              | float        | YES  |     | NULL                       |       |
+| back             | varchar(3)   | YES  |     | NO                         |       |
+| age              | tinyint      | YES  |     | NULL                       |       |
+| specialization   | varchar(100) | YES  |     | Please Update Your Deatils |       |
+| area_of_interest | varchar(100) | YES  |     | NULL                       |       |
+| batch_year       | year         | YES  |     | NULL                       |       |
+| transcript_link  | varchar(500) | YES  |     | NULL                       |       |
+| resume_link      | varchar(500) | YES  |     | NULL                       |       |
++------------------+--------------+------+-----+----------------------------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc student_login;
++--------------------+--------------+------+-----+---------+-------+
+| Field              | Type         | Null | Key | Default | Extra |
++--------------------+--------------+------+-----+---------+-------+
+| roll_number        | char(8)      | NO   | PRI | NULL    |       |
+| email              | varchar(100) | YES  |     | NULL    |       |
+| first_name         | varchar(50)  | YES  |     | NULL    |       |
+| last_name          | varchar(50)  | YES  |     | NULL    |       |
+| password           | varchar(100) | YES  |     | NULL    |       |
+| verification_token | varchar(100) | YES  |     | NULL    |       |
+| verified           | tinyint(1)   | YES  |     | 0       |       |
++--------------------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> desc student_placement;
++---------------+-------------+------+-----+----------------+-------+
+| Field         | Type        | Null | Key | Default        | Extra |
++---------------+-------------+------+-----+----------------+-------+
+| roll_number   | char(8)     | NO   | PRI | NULL           |       |
+| company       | varchar(50) | YES  |     | Not Placed     |       |
+| role          | varchar(50) | YES  |     | Not Applicable |       |
+| package       | int         | YES  |     | 0              |       |
+| place_of_work | varchar(50) | YES  |     | NULL           |       |
+| off_campus    | tinyint(1)  | YES  |     | 0              |       |
++---------------+-------------+------+-----+----------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> desc year_2022;
++----------------------+--------------+------+-----+---------+-------+
+| Field                | Type         | Null | Key | Default | Extra |
++----------------------+--------------+------+-----+---------+-------+
+| id                   | int          | NO   | PRI | NULL    |       |
+| MinimumQualification | varchar(100) | YES  |     | NULL    |       |
+| ThresholdMarks       | float        | YES  |     | NULL    |       |
+| SalaryPackage        | int          | YES  |     | NULL    |       |
+| InterviewMode        | varchar(100) | YES  |     | NULL    |       |
+| RecruitingSince      | int          | YES  |     | NULL    |       |
+| Back                 | varchar(10)  | YES  |     | NULL    |       |
+| Role                 | varchar(100) | NO   | PRI | NULL    |       |
++----------------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc year_2023;
++----------------------+--------------+------+-----+---------+-------+
+| Field                | Type         | Null | Key | Default | Extra |
++----------------------+--------------+------+-----+---------+-------+
+| id                   | int          | NO   | PRI | NULL    |       |
+| MinimumQualification | varchar(100) | YES  |     | NULL    |       |
+| ThresholdMarks       | float        | YES  |     | NULL    |       |
+| SalaryPackage        | int          | YES  |     | NULL    |       |
+| InterviewMode        | varchar(100) | YES  |     | NULL    |       |
+| RecruitingSince      | int          | YES  |     | NULL    |       |
+| Back                 | varchar(10)  | YES  |     | NULL    |       |
+| Role                 | varchar(100) | NO   | PRI | NULL    |       |
+| locations            | varchar(200) | YES  |     | NULL    |       |
++----------------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
